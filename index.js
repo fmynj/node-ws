@@ -8,16 +8,16 @@ const crypto = require('crypto');
 const { Buffer } = require('buffer');
 const { exec, execSync } = require('child_process');
 const { WebSocket, createWebSocketStream } = require('ws');
-const UUID = process.env.UUID || 'a64470a8-b240-4119-a1dc-eba04343d45f'; // 运行哪吒v1,在不同的平台需要改UUID,否则会被覆盖
+const UUID = process.env.UUID || '35e6125d-52d9-4187-9798-5ae85e9ddda7'; // 运行哪吒v1,在不同的平台需要改UUID,否则会被覆盖
 const NEZHA_SERVER = process.env.NEZHA_SERVER || 'nezha.fmynj.ggff.net:443';       // 哪吒v1填写形式：nz.abc.com:8008   哪吒v0填写形式：nz.abc.com
 const NEZHA_PORT = process.env.NEZHA_PORT || '';           // 哪吒v1没有此变量，v0的agent端口为{443,8443,2096,2087,2083,2053}其中之一时开启tls
 const NEZHA_KEY = process.env.NEZHA_KEY || '4qCu7mBUFZDVzeAmHelGOzddkwQjPJCK';             // v1的NZ_CLIENT_SECRET或v0的agent端口                
-const DOMAIN = process.env.DOMAIN || 'greencoyote.onpella.app';       // 填写项目域名或已反代的域名，不带前缀，建议填已反代的域名
+const DOMAIN = process.env.DOMAIN || 'fmynj.alwaysdata.net';       // 填写项目域名或已反代的域名，不带前缀，建议填已反代的域名
 const AUTO_ACCESS = process.env.AUTO_ACCESS || true;       // 是否开启自动访问保活,false为关闭,true为开启,需同时填写DOMAIN变量
 const WSPATH = process.env.WSPATH || UUID.slice(0, 8);     // 节点路径，默认获取uuid前8位
 const SUB_PATH = process.env.SUB_PATH || 'fmynj';            // 获取节点的订阅路径
 const NAME = process.env.NAME || 'pella';                    // 节点名称
-const PORT = process.env.PORT || 3000;                     // http和ws服务端口
+const PORT = process.env.PORT || 8310;                     // http和ws服务端口
 
 let ISP = '';
 const GetISP = async () => {
